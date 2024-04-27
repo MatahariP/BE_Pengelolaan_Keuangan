@@ -1,11 +1,12 @@
 const express = require("express");
-const app = express();
-const port = 3000;
+const app = require("./src/app");
+const db = require("./dbConnect");
+const port = Number(process.env.PORT || 5000);
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
-app.listen(port, () => {
-  console.log(`Listening on ${port}`);
-  console.log("tes");
+app.listen(port, async () => {
+  try {
+    await db;
+  } catch (e) {
+    console.log(e);
+  }
 });
