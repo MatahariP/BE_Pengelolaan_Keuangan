@@ -1,10 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const validate = require("../middleware/validation/userValidation");
-const {} = require("../handler/user_input/index");
-router.get("/");
-router.post("/create", validate);
-router.put("/update", validate);
-router.delete("/delete", validate);
+const {
+  getAllUser,
+  postUser,
+  updateUser,
+  deleteUser,
+} = require("../handler/user_input/index");
+router.get("/", getAllUser);
+router.post("/create", validate, postUser);
+router.put("/update", validate, updateUser);
+router.delete("/delete", validate, deleteUser);
 
 module.exports = router;
