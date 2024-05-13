@@ -1,4 +1,4 @@
-const db = require("../../../dbConnect");
+const db = require("../../dbConnect");
 
 const getAllExpenses = async (req, res) => {
   const query = `SELECT * FROM expenses_name`;

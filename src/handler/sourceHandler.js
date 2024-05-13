@@ -1,4 +1,4 @@
-const db = require("../../../dbConnect");
+const db = require("../../dbConnect");
 
 const getAllSource = async (req, res) => {
   const query = `SELECT * FROM source_income`;

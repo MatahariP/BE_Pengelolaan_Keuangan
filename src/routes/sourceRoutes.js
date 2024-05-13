@@ -6,7 +6,7 @@ const {
   postSource,
   updateSource,
   deleteSource,
-} = require("../handler/source_income/index");
+} = require("../handler/index");
 router.get("/", getAllSource);
 router.post("/create", validate, postSource);
 router.put("/update", validate, updateSource);

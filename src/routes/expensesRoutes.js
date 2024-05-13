@@ -6,7 +6,7 @@ const {
   postExpenses,
   updateExpenses,
   deleteExpenses,
-} = require("../handler/expenses_name/index");
+} = require("../handler/index");
 router.get("/", getAllExpenses);
 router.post("/create", validate, postExpenses);
 router.put("/update", validate, updateExpenses);

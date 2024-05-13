@@ -6,7 +6,7 @@ const {
   postCategory,
   updateCategory,
   deleteCategory,
-} = require("../handler/category/index");
+} = require("../handler/index");
 router.get("/", getAllCategory);
 router.post("/create", validate, postCategory);
 router.put("/update", validate, updateCategory);

@@ -1,7 +1,7 @@
-const db = require("../../../dbConnect");
+const db = require("../../dbConnect");
 
-const getAllCategory = async (req, res) => {
-  const query = `SELECT * FROM category`;
+const getAllMedia = async (req, res) => {
+  const query = `SELECT * FROM media`;
 
   try {
     const { rows } = await db.query(query);
@@ -13,16 +13,16 @@ const getAllCategory = async (req, res) => {
   }
 };
 
-const postCategory = async (req, res) => {
+const postMedia = async (req, res) => {
   //console.log(req.body);
-  const { id_category, name } = req.body;
+  const { id_media, name } = req.body;
 
-  let query = `Select name FROM category WHERE name = '${name}'`;
+  let query = `Select name FROM media WHERE name = '${name}'`;
   const check = await db.query(query);
   if (check.rows.length != 0)
     return res.status(400).send(`"${check.rows[0].name}" already added!`);
 
-  query = `INSERT INTO category (id_category,name) VALUES ('${id_category}','${name}')`;
+  query = `INSERT INTO media (id_media,name) VALUES ('${id_media}','${name}')`;
 
   try {
     await db.query(query);
@@ -35,16 +35,16 @@ const postCategory = async (req, res) => {
   }
 };
 
-const updateCategory = async (req, res) => {
-  const { id_category, name } = req.body;
-  // console.log(id_category, name);
-  let query = `Select id_category FROM category WHERE id_category = '${id_category}'`;
+const updateMedia = async (req, res) => {
+  const { id_media, name } = req.body;
+  // console.log(id_media, name);
+  let query = `Select id_media FROM media WHERE id_media = '${id_media}'`;
   // console.log(query);
   const check = await db.query(query);
   if (check.rows.length <= 0)
-    return res.status(400).send(`id "${id_category}" doesn't exist!`);
+    return res.status(400).send(`id "${id_media}" doesn't exist!`);
 
-  query = `UPDATE category SET name = '${name}' WHERE id_category = '${id_category}'`;
+  query = `UPDATE media SET name = '${name}' WHERE id_media = '${id_media}'`;
   // console.log(query);
 
   try {
@@ -58,15 +58,15 @@ const updateCategory = async (req, res) => {
   }
 };
 
-const deleteCategory = async (req, res) => {
-  const { id_category } = req.bo;
-  let query = `Select id_category FROM category WHERE id_category = '${id_category}'`;
+const deleteMedia = async (req, res) => {
+  const { id_media } = req.body;
+  let query = `Select id_media FROM media WHERE id_media = '${id_media}'`;
   // console.log(query);
   const check = await db.query(query);
   if (check.rows.length <= 0)
-    return res.status(400).send(`id "${id_category}" doesn't exist!`);
+    return res.status(400).send(`id "${id_media}" doesn't exist!`);
 
-  query = `DELETE FROM category WHERE id_category = '${id_category}'`;
+  query = `DELETE FROM media WHERE id_media = '${id_media}'`;
   // console.log(query);
 
   try {
@@ -80,8 +80,8 @@ const deleteCategory = async (req, res) => {
   }
 };
 module.exports = {
-  getAllCategory,
-  postCategory,
-  updateCategory,
-  deleteCategory,
+  getAllMedia,
+  postMedia,
+  updateMedia,
+  deleteMedia,
 };

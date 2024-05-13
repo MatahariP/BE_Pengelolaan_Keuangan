@@ -6,7 +6,7 @@ const {
   postMedia,
   updateMedia,
   deleteMedia,
-} = require("../handler/media/index");
+} = require("../handler/index");
 router.get("/", getAllMedia);
 router.post("/create", validate, postMedia);
 router.put("/update", validate, updateMedia);

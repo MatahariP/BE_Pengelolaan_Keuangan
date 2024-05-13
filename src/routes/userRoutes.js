@@ -6,7 +6,7 @@ const {
   postUser,
   updateUser,
   deleteUser,
-} = require("../handler/user_input/index");
+} = require("../handler/index");
 router.get("/", getAllUser);
 router.post("/create", validate, postUser);
 router.put("/update", validate, updateUser);

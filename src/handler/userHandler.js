@@ -1,4 +1,4 @@
-const db = require("../../../dbConnect");
+const db = require("../../dbConnect");
 
 const getAllUser = async (req, res) => {
   const query = `SELECT ui."timestamp",
