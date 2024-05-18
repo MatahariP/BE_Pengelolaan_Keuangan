@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const validate = require("../middleware/validation/categoryValidation");
 const auth = require("../middleware/auth");
+
 const {
   getAllCategory,
   postCategory,

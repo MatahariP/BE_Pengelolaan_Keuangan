@@ -20,7 +20,7 @@ const postCategory = async (req, res) => {
   let query = `Select name FROM category WHERE name = '${name}'`;
   const check = await db.query(query);
   if (check.rows.length != 0)
-    res.streturnaus(t400).send(`"${check.rows[0].name}" already added!`);
+    res.status(400).send(`"${check.rows[0].name}" already added!`);
 
   query = `INSERT INTO category (id_category,name) VALUES ('${id_category}','${name}')`;
 
