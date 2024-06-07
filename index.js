@@ -2,6 +2,7 @@ const express = require("express");
 const app = require("./src/app");
 const db = require("./dbConnect");
 const port = Number(process.env.PORT || 5000);
+const router = require("./src/routes");
 const notFound = require("./src/middleware/notFound");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
@@ -10,7 +11,8 @@ require("dotenv").config();
 
 app.use(notFound);
 app.use(cookieParser(process.env.SECRET_KEY));
-//
+app.use("/", router);
+
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
