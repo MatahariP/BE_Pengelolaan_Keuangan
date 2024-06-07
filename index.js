@@ -11,11 +11,7 @@ require("dotenv").config();
 
 app.use(notFound);
 app.use(cookieParser(process.env.SECRET_KEY));
-app.use("/", router);
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
 app.listen(port, async () => {
   try {
     await db;

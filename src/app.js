@@ -14,5 +14,7 @@ app.use(
 app.use(express.json({ type: "application/json" }));
 
 app.use("/", router);
-
+app.get("/", (req, res) => {
+  res.send("Hello World!");
+});
 module.exports = app;

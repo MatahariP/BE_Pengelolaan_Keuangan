@@ -1,6 +1,6 @@
 const notFound = (req, res) => {
   res.status(404).json({
-    message: "Url Not Found",
+    message: err,
   });
 };
 
