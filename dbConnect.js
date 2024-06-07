@@ -7,6 +7,10 @@ const pool = new Pool({
   database: process.env.PG_DATABASE,
   user: process.env.PG_USER,
   password: process.env.PG_PASSWORD,
+  ssl: {
+    rejectUnauthorized: true,
+    mode: process.env.PGSSLMODE || "prefer",
+  },
 });
 
 module.exports = {
