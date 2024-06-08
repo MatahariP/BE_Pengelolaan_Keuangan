@@ -6,7 +6,7 @@ const getAllInput = async (req, res) => {
   ex."category",
   ex."name",
   ui."description",
-  ui."nominal",
+  ui."nominal", 
   ex."media",
   ui."id_management_types",
   ex."id_expenses"

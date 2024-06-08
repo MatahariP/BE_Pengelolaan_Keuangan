@@ -96,6 +96,15 @@ const login = async (req, res) => {
   }
 };
 
+const logout = async (req, res) => {
+  if (req.user.id === "") {
+    res.send("Failed to logout");
+  }
+  res.clearCookie("token").json({
+    message: "Successfully logged out",
+  });
+};
+
 const deleteUser = async (req, res) => {
   const { id_user } = req.body;
   let query = `Select id_user FROM users WHERE id_user = '${id_user}'`;
@@ -121,5 +130,6 @@ module.exports = {
   getAllUsers,
   register,
   login,
+  logout,
   deleteUser,
 };
